@@ -1,0 +1,19 @@
+services:
+  database:
+    ports:
+      - 5432:5432
+    container_name: postgresql
+    image: postgres
+    environment:
+      - POSTGRES_DB=spring_auth
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=VstII8;j7:xA"DFmGf8e5o9DnT"hcntX
+
+  backend:
+    build: ./
+    container_name: auth-spring-boot-app
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
